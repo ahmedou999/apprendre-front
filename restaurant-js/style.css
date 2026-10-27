@@ -1,0 +1,41 @@
+:root {
+    --bordure: #ccc;
+    --rayon: 8px;
+}
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav div {
+    display: flex;
+    gap: 1rem
+}
+
+
+#carte {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.plat {
+    padding: 1rem;
+    border: 1px solid var(--bordure); 
+    border-radius: var(--rayon);
+    display: flex;
+    flex-direction: column;
+}
+
+.plat button {
+    margin-top: auto;
+    align-self: flex-start;
+}

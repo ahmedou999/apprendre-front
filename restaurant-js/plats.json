@@ -1,0 +1,8 @@
+[
+  { "nom": "Pizza Margherita", "description": "Tomate, mozzarella, basilic", "prix": 99 },
+  { "nom": "Burger Classique", "description": "Bœuf, cheddar, salade, tomate", "prix": 14 },
+  { "nom": "Salade César", "description": "Poulet, parmesan, croûtons, sauce césar", "prix": 10 },
+  { "nom": "Lasagnes", "description": "Bœuf, sauce tomate, béchamel, emmental", "prix": 13 },
+  { "nom": "Risotto aux champignons", "description": "Riz arborio, champignons, parmesan", "prix": 15 },
+  { "nom": "Tiramisu", "description": "Mascarpone, café, cacao", "prix": 6 }
+]
