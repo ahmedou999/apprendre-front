@@ -1,11 +1,14 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import CartePlat from "./components/CartePlat.vue";
+
 
 const plats = ref([]);
 const panier = ref([]);
 const total = computed(() => panier.value.reduce((somme, p) => somme + p.prix, 0));
 const prixMax = ref("");
-const platsFiltrer = computed(() => {if (prixMax.value === "") {
+const platsFiltres = computed(() => {
+    if (prixMax.value === "") {
         return plats.value;
     }
     return plats.value.filter(p => p.prix <= Number(prixMax.value));
@@ -43,12 +46,7 @@ function ajouterAuPanier(plat) {
         <input type="number" id="prix-max" v-model="prixMax" min="0" placeholder="ex : 12">
     </div>
     <div id="carte">
-        <div v-for="plat in platsFiltrer" :key="plat.nom" class="plat">
-            <h3>{{ plat.nom }}</h3>
-            <p>{{ plat.description }}.</p>
-            <p>{{ plat.prix }}€</p>
-            <button type="button" @click="ajouterAuPanier(plat)">ajouter</button>
-        </div>
+        <CartePlat v-for="plat in platsFiltres" :key="plat.nom" :plat="plat" @ajouter="ajouterAuPanier"/>
     </div>
 </template>
 
@@ -84,6 +82,7 @@ nav div {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 .plat {
